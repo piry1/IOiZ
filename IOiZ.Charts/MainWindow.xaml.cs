@@ -38,11 +38,12 @@ namespace IOiZ.Charts
 
             var c = a * b;
             var c1 = a1 * b1;
-          //  chartsControl.AddNewSeries(a.GetPoints(), nameof(a));
+            var d = c / c;
+            var d1 = c1 / c1;
+            chartsControl.AddNewSeries(d.GetPoints(), nameof(d));
+            chartsControl.AddNewSeries(d1.GetPoints(), nameof(d1));
             chartsControl.AddNewSeries(c1.GetPoints(), nameof(c1));
             chartsControl.AddNewSeries(c.GetPoints(), nameof(c));
-
-
         }
     }
 }
