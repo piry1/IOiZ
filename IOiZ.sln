@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27130.2020
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IOiZ", "IOiZ\IOiZ.csproj", "{E17B7DD4-32FF-4F13-AF1C-EC5A4320B940}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IOiZ.Charts", "IOiZ.Charts\IOiZ.Charts.csproj", "{EC3422A0-B0BA-4A05-A694-4C9066E52644}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{E17B7DD4-32FF-4F13-AF1C-EC5A4320B940}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E17B7DD4-32FF-4F13-AF1C-EC5A4320B940}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E17B7DD4-32FF-4F13-AF1C-EC5A4320B940}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC3422A0-B0BA-4A05-A694-4C9066E52644}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC3422A0-B0BA-4A05-A694-4C9066E52644}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC3422A0-B0BA-4A05-A694-4C9066E52644}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC3422A0-B0BA-4A05-A694-4C9066E52644}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

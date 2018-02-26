@@ -8,7 +8,7 @@ namespace IOiZ.Model
 {
     public class PreciseTrapNum
     {
-        private const int Precision = 3;
+        private const int Precision = 128;
         public decimal[] SlopeAb { get; } = new decimal[Precision];
         public decimal[] SlopeDc { get; } = new decimal[Precision];
 
@@ -24,6 +24,20 @@ namespace IOiZ.Model
             CheckSlopes(slopeAb, slopeDc);
             SlopeAb = slopeAb.ToArray();
             SlopeDc = slopeDc.ToArray();
+        }
+
+        public List<Point> GetPoints()
+        {
+            var points = new List<Point>();
+            const decimal step = 1m / (Precision - 1);
+
+            for (int i = 0; i < Precision; ++i)
+                points.Add(new Point(SlopeAb[i], step * i));
+
+            for (int i = Precision - 1; i >= 0; --i)
+                points.Add(new Point(SlopeDc[i], step * i));
+
+            return points;
         }
 
         #region Overwriting operators

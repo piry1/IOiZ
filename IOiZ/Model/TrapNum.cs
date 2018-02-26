@@ -24,6 +24,19 @@ namespace IOiZ.Model
             D = d;
         }
 
+        public List<Point> GetPoints()
+        {
+            var points = new List<Point>
+            {
+                new Point(A, 0),
+                new Point(B, 1),
+                new Point(C, 1),
+                new Point(D, 0)
+            };
+
+            return points;
+        }
+
         #region Overwritten Operators
 
         public static TrapNum operator +(TrapNum n1, TrapNum n2)
