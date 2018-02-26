@@ -44,7 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="Model\TrapezoidalNumber.cs" />
+    <Compile Include="Model\PreciseTrapNum.cs" />
+    <Compile Include="Model\TrapNum.cs" />
     <Compile Include="Model\WrongTrapezoidalNumberValuesException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

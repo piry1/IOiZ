@@ -13,10 +13,15 @@ namespace IOiZ
         public static void Main()
         {
             Console.WriteLine("Start");
-            var A = new TrapezoidalNumber(1, 2, 3, 4);
-            var B = new TrapezoidalNumber(2, 3, 4, 5);
+            var A = new TrapNum(1, 2, 3, 4);
+            var B = new TrapNum(2, 3, 4, 5);
 
-            var C = A - A;
+            var C = A / B;
+
+            var ptn1 = new PreciseTrapNum(1, 2, 3, 4);
+            var ptn2 = new PreciseTrapNum(2, 3, 4, 5);
+            var ptn = ptn1 / ptn2;
+            Console.WriteLine(ptn);
 
             Console.WriteLine(C);
             Console.WriteLine("END");
