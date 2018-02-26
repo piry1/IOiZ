@@ -1,18 +1,16 @@
-﻿using LiveCharts;
+﻿using IOiZ.Model;
+using LiveCharts;
 using LiveCharts.Defaults;
 using LiveCharts.Wpf;
 using System;
 using System.Collections.Generic;
-using System.Windows.Controls;
-using System.Windows.Media;
-using IOiZ.Model;
 
 namespace IOiZ.Charts
 {
     /// <summary>
     /// Interaction logic for ChartsControl.xaml
     /// </summary>
-    public partial class ChartsControl : UserControl
+    public partial class ChartsControl
     {
         public SeriesCollection SeriesCollection { get; set; }
         public string[] Labels { get; set; }

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace IOiZ.Model
 {
@@ -38,6 +36,17 @@ namespace IOiZ.Model
                 points.Add(new Point(SlopeDc[i], step * i));
 
             return points;
+        }
+
+        public override string ToString()
+        {
+            string slopeAb = "", slopeDc = "";
+            foreach (var value in SlopeAb)
+                slopeAb += " " + value;
+            foreach (var value in SlopeDc)
+                slopeDc += " " + value;
+
+            return $"slopeAB: {slopeAb}\nslopeDc: {slopeDc}";
         }
 
         #region Overwriting operators
@@ -120,18 +129,7 @@ namespace IOiZ.Model
             for (var i = 0; i < SlopeDc.Length; ++i)
                 SlopeDc[i] = d - step2 * i;
 
-        }
-
-        public override string ToString()
-        {
-            string slopeAb = "", slopeDc = "";
-            foreach (var value in SlopeAb)
-                slopeAb += " " + value;
-            foreach (var value in SlopeDc)
-                slopeDc += " " + value;
-
-            return $"slopeAB: {slopeAb}\nslopeDc: {slopeDc}";
-        }
+        }    
     }
 
 
