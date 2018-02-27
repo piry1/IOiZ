@@ -6,9 +6,9 @@ namespace IOiZ.Model
 {
     public class PreciseTrapNum
     {
-        private const int Precision = 128;
-        public decimal[] SlopeAb { get; } = new decimal[Precision];
-        public decimal[] SlopeDc { get; } = new decimal[Precision];
+        private const int Precision = 64;
+        public decimal[] SlopeAb { get; set; } = new decimal[Precision];
+        public decimal[] SlopeDc { get; set; } = new decimal[Precision];
 
         public PreciseTrapNum(decimal a, decimal b, decimal c, decimal d)
         {
@@ -36,6 +36,11 @@ namespace IOiZ.Model
                 points.Add(new Point(SlopeDc[i], step * i));
 
             return points;
+        }
+
+        public static PreciseTrapNum Convert(TrapNum tn)
+        {
+            return new PreciseTrapNum(tn.A, tn.B, tn.C, tn.D);
         }
 
         public override string ToString()
@@ -129,7 +134,7 @@ namespace IOiZ.Model
             for (var i = 0; i < SlopeDc.Length; ++i)
                 SlopeDc[i] = d - step2 * i;
 
-        }    
+        }
     }
 
 

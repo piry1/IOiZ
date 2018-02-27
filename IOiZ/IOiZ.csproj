@@ -46,9 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\CPTN.cs" />
+    <Compile Include="Model\CTN.cs" />
     <Compile Include="Model\Point.cs" />
     <Compile Include="Model\PreciseTrapNum.cs" />
+    <Compile Include="Model\Probability.cs" />
     <Compile Include="Model\TrapNum.cs" />
+    <Compile Include="Model\TrapNumGenerator.cs" />
     <Compile Include="Model\WrongTrapezoidalNumberValuesException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

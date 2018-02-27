@@ -4,10 +4,10 @@ namespace IOiZ.Model
 {
     public class TrapNum
     {
-        public decimal A { get; }
-        public decimal B { get; }
-        public decimal C { get; }
-        public decimal D { get; }
+        public decimal A { get; set; }
+        public decimal B { get; set; }
+        public decimal C { get; set; }
+        public decimal D { get; set; }
 
         public TrapNum(decimal a, decimal b, decimal c, decimal d)
         {
@@ -75,7 +75,7 @@ namespace IOiZ.Model
 
         public override string ToString()
         {
-            return $"A: {A}, B: {B}, C: {C}, D: {D}";
+            return $"{A}\t{B}\t{C}\t{D}";
         }
     }
 }
