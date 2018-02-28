@@ -17,9 +17,7 @@ namespace IOiZ.Charts
             InitializeComponent();
             ChartContent.Content = _chartsControl;
             var ctn = new TrapNumGenerator<CTN>();
-            TrapNumGenerator<CPTN> cptn = new TrapNumGenerator<CPTN>();
-
-            var zero = new CTN(0, 0, 0, 0); ;
+            //TrapNumGenerator<CPTN> cptn = new TrapNumGenerator<CPTN>();
 
             var UZM1 = ctn.GetObject(Probability.VerySmall);
             var UZM2 = ctn.GetObject(Probability.VerySmall);
@@ -33,19 +31,19 @@ namespace IOiZ.Charts
 
             var T = UZM1 * UZM2 + US1 + UZS + US2 + UM + AAP * ASE;
 
-            var TwUZM1 = UZM2 + US1 + UZS + US2 + UM + AAP * ASE;
-            var TwUZM2 = UZM1 + US1 + UZS + US2 + UM + AAP * ASE;
-            var TwUZS = UZM1 * UZM2 + US1 + US2 + UM + AAP * ASE;
-            var TwUM = UZM1 * UZM2 + US1 + UZS + US2 + AAP * ASE;
-            var TwUS1 = UZM1 * UZM2 + UZS + US2 + UM + AAP * ASE;
-            var TwUS2 = UZM1 * UZM2 + US1 + UZS + UM + AAP * ASE;
-            var TwAAP = UZM1 * UZM2 + US1 + UZS + US2 + UM + ASE;
-            var TwASE = UZM1 * UZM2 + US1 + UZS + US2 + UM + AAP;
+            var TwUZM1 = T - (UZM2 + US1 + UZS + US2 + UM + AAP * ASE);
+            var TwUZM2 = T - (UZM1 + US1 + UZS + US2 + UM + AAP * ASE);
+            var TwUZS = T - (UZM1 * UZM2 + US1 + US2 + UM + AAP * ASE);
+            var TwUM = T - (UZM1 * UZM2 + US1 + UZS + US2 + AAP * ASE);
+            var TwUS1 = T - (UZM1 * UZM2 + UZS + US2 + UM + AAP * ASE);
+            var TwUS2 = T - (UZM1 * UZM2 + US1 + UZS + UM + AAP * ASE);
+            var TwAAP = T - (UZM1 * UZM2 + US1 + UZS + US2 + UM + ASE);
+            var TwASE = T - (UZM1 * UZM2 + US1 + UZS + US2 + UM + AAP);
 
 
             List<string> results = new List<string>();
 
-            results.Add(T.ToString());
+            // results.Add(T.ToString());
 
             results.Add(TwUZM1.ToString());
             results.Add(TwUZM2.ToString());
@@ -61,8 +59,8 @@ namespace IOiZ.Charts
             // var d = c / c;
             //   var d1 = c1 / c1;
             //  _chartsControl.AddSeries(d.GetPoints(), nameof(d));
-            _chartsControl.AddSeries(T, nameof(T));
-
+            // _chartsControl.AddSeries(CountT.Count(), "T");
+            // _chartsControl.AddSeries(CountT.CountPrecise(), "Tp");
             _chartsControl.AddSeries(TwUZM1, nameof(TwUZM1));
             _chartsControl.AddSeries(TwUZM2, nameof(TwUZM2));
             _chartsControl.AddSeries(TwUZS, nameof(TwUZS));

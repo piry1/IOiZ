@@ -30,13 +30,28 @@ namespace IOiZ.Model
             return new CTN(ctn.A, ctn.B, ctn.C, ctn.D);
         }
 
-        public static CTN operator +(CTN n1, CTN n2) => CutNumber(n1 as TrapNum + n2, 0, 1);
+        private static void CutNumbers(params decimal[] numbers)
+        {
+            for (int i = 0; i < numbers.Length; ++i)
+            {
+                numbers[i] = CutNumber(numbers[i], 0, 1);
+            }
+        }
 
-        public static CTN operator -(CTN n1, CTN n2) => CutNumber(n1 as TrapNum - n2, 0, 1);
+        private static decimal CutNumber(decimal number, decimal min, decimal max)
+        {
+            if (number < min) number = min;
+            if (number > max) number = max;
+            return number;
+        }
 
-        public static CTN operator *(CTN n1, CTN n2) => CutNumber((n1 as TrapNum) * n2, 0, 1);
+        public static CTN operator +(CTN n1, CTN n2) => CutNumber(n1 as TrapNum + n2, 0.0000000000000001m, 1);
 
-        public static CTN operator /(CTN n1, CTN n2) => CutNumber((n1 as TrapNum) / n2, 0, 1);
+        public static CTN operator -(CTN n1, CTN n2) => CutNumber(n1 as TrapNum - n2, 0.0000000000000001m, 1);
+
+        public static CTN operator *(CTN n1, CTN n2) => CutNumber((n1 as TrapNum) * n2, 0.0000000000000001m, 1);
+
+        public static CTN operator /(CTN n1, CTN n2) => CutNumber((n1 as TrapNum) / n2, 0.0000000000000001m, 1);
 
     }
 }
