@@ -40,12 +40,20 @@ namespace IOiZ.Charts
 
         public void AddSeries(TrapNum tn, string title)
         {
-            AddSeries(PreciseTrapNum.Convert(tn).GetPoints(), title);
+            AddSeries(PreciseTrapNum.Convert(tn), title);
         }
 
         public void AddSeries(PreciseTrapNum ptn, string title)
         {
-            AddSeries(ptn.GetPoints(), title);
+            List<Point> points = new List<Point>();
+            foreach (var point in ptn.GetPoints())
+            {
+                points.Add(point.X < (decimal)(0.0000000000001) ? 
+                    new Point((decimal)0.0000000000001, point.Y) 
+                    : point);
+            }
+
+            AddSeries(points, title);
         }
 
         public void AddSeries(List<Point> points, string title)

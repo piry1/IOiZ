@@ -12,7 +12,7 @@ namespace IOiZ.Model
         public TrapNum(decimal a, decimal b, decimal c, decimal d)
         {
             if (a > b || b > c || c > d)
-                throw new WrongTrapezoidalNumberValuesException();
+                throw new WrongTrapezoidalNumberValuesException("Incorrect trapnum values");
 
             A = a;
             B = b;
@@ -47,10 +47,10 @@ namespace IOiZ.Model
         public static TrapNum operator -(TrapNum n1, TrapNum n2)
         {
             return new TrapNum(
-                n1.A - n2.D,
-                n1.B - n2.C,
-                n1.C - n2.B,
-                n1.D - n2.A);
+                n1.A - n2.A,
+                n1.B - n2.B,
+                n1.C - n2.C,
+                n1.D - n2.D);
         }
 
         public static TrapNum operator *(TrapNum n1, TrapNum n2)

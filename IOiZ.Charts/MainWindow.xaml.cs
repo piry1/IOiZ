@@ -17,7 +17,45 @@ namespace IOiZ.Charts
             InitializeComponent();
             ChartContent.Content = _chartsControl;
             var ctn = new TrapNumGenerator<CTN>();
-            //TrapNumGenerator<CPTN> cptn = new TrapNumGenerator<CPTN>();
+            var cptn = new TrapNumGenerator<CPTN>();
+
+            //  ZeroReduction(ctn);
+
+            //var UZM1 = ctn.GetObject(Probability.VerySmall);
+            //var UZM2 = ctn.GetObject(Probability.VerySmall);
+            //var UZS = ctn.GetObject(Probability.VerySmall);
+            //var UM = ctn.GetObject(Probability.Small);
+            //var US1 = ctn.GetObject(Probability.Average);
+            //var US2 = ctn.GetObject(Probability.Average);
+            //var AAP = ctn.GetObject(Probability.Average);
+            //var ASE = ctn.GetObject(Probability.Big);
+
+            //var T0 = UZM1 * UZM2 + US1 + UZS + US2 + UM + AAP * ASE;
+            //var T1 = UZM1 * UZM2 + US1 + UZS + US2 + UM + AAP * ASE;
+            //var T2 = UZM1 * UZM2 + US1 + UZS + US2 + UM + AAP * ASE;
+
+            //List<string> results = new List<string>();
+
+            //results.Add(T0.ToString());
+
+            //results.Add(T1.ToString());
+            //results.Add(T2.ToString());
+
+            //File.WriteAllLines("results.txt", results);
+
+            var a = ctn.GetObject(Probability.Big);
+            var b = cptn.GetObject(Probability.Big);
+
+            var A = a * a;
+            var B = b * b;
+
+            _chartsControl.AddSeries(A, "Przybliżone");
+            _chartsControl.AddSeries(B, "Dokładne");
+        }
+
+        private void ZeroReduction(TrapNumGenerator<CTN> ctn)
+        {
+            var zero = new CTN(0, 0, 0, 0);
 
             var UZM1 = ctn.GetObject(Probability.VerySmall);
             var UZM2 = ctn.GetObject(Probability.VerySmall);
@@ -31,19 +69,19 @@ namespace IOiZ.Charts
 
             var T = UZM1 * UZM2 + US1 + UZS + US2 + UM + AAP * ASE;
 
-            var TwUZM1 = T - (UZM2 + US1 + UZS + US2 + UM + AAP * ASE);
-            var TwUZM2 = T - (UZM1 + US1 + UZS + US2 + UM + AAP * ASE);
-            var TwUZS = T - (UZM1 * UZM2 + US1 + US2 + UM + AAP * ASE);
-            var TwUM = T - (UZM1 * UZM2 + US1 + UZS + US2 + AAP * ASE);
-            var TwUS1 = T - (UZM1 * UZM2 + UZS + US2 + UM + AAP * ASE);
-            var TwUS2 = T - (UZM1 * UZM2 + US1 + UZS + UM + AAP * ASE);
-            var TwAAP = T - (UZM1 * UZM2 + US1 + UZS + US2 + UM + ASE);
-            var TwASE = T - (UZM1 * UZM2 + US1 + UZS + US2 + UM + AAP);
+            var TwUZM1 = T - (zero * UZM2 + US1 + UZS + US2 + UM + AAP * ASE);
+            var TwUZM2 = T - (UZM1 * zero + US1 + UZS + US2 + UM + AAP * ASE);
+            var TwUZS = T - (UZM1 * UZM2 + US1 + zero + US2 + UM + AAP * ASE);
+            var TwUM = T - (UZM1 * UZM2 + US1 + UZS + zero + US2 + AAP * ASE);
+            var TwUS1 = T - (UZM1 * UZM2 + zero + UZS + US2 + UM + AAP * ASE);
+            var TwUS2 = T - (UZM1 * UZM2 + US1 + zero + UZS + UM + AAP * ASE);
+            var TwAAP = T - (UZM1 * UZM2 + US1 + UZS + US2 + UM + ASE * zero);
+            var TwASE = T - (UZM1 * UZM2 + US1 + UZS + US2 + UM + AAP * zero);
 
 
             List<string> results = new List<string>();
 
-            // results.Add(T.ToString());
+            results.Add(T.ToString());
 
             results.Add(TwUZM1.ToString());
             results.Add(TwUZM2.ToString());
@@ -56,25 +94,14 @@ namespace IOiZ.Charts
 
             File.WriteAllLines("results.txt", results);
 
-            // var d = c / c;
-            //   var d1 = c1 / c1;
-            //  _chartsControl.AddSeries(d.GetPoints(), nameof(d));
-            // _chartsControl.AddSeries(CountT.Count(), "T");
-            // _chartsControl.AddSeries(CountT.CountPrecise(), "Tp");
-            _chartsControl.AddSeries(TwUZM1, nameof(TwUZM1));
-            _chartsControl.AddSeries(TwUZM2, nameof(TwUZM2));
-            _chartsControl.AddSeries(TwUZS, nameof(TwUZS));
-            _chartsControl.AddSeries(TwUM, nameof(TwUM));
-            _chartsControl.AddSeries(TwUS1, nameof(TwUS1));
-            _chartsControl.AddSeries(TwUS2, nameof(TwUS2));
-            _chartsControl.AddSeries(TwAAP, nameof(TwAAP));
-            _chartsControl.AddSeries(TwASE, nameof(TwASE));
-
-
-
-
-
-            // _chartsControl.AddSeries(a.GetPoints(), nameof(a));
+            _chartsControl.AddSeries(TwUZM1, "UZM1");
+            _chartsControl.AddSeries(TwUZM2, "UZM2");
+            _chartsControl.AddSeries(TwUZS, "UZS");
+            _chartsControl.AddSeries(TwUM, "UM");
+            _chartsControl.AddSeries(TwUS1, "US1");
+            _chartsControl.AddSeries(TwUS2, "US2");
+            _chartsControl.AddSeries(TwAAP, "AAP");
+            _chartsControl.AddSeries(TwASE, "ASE");
         }
     }
 }

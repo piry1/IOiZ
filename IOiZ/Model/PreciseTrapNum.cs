@@ -77,8 +77,8 @@ namespace IOiZ.Model
 
             for (int i = 0; i < Precision; ++i)
             {
-                newSlopeAb[i] = n1.SlopeAb[i] - n2.SlopeDc[i];
-                newSlopeDc[i] = n1.SlopeDc[i] - n2.SlopeAb[i];
+                newSlopeAb[i] = n1.SlopeAb[i] - n2.SlopeAb[i];
+                newSlopeDc[i] = n1.SlopeDc[i] - n2.SlopeDc[i];
             }
 
             return new PreciseTrapNum(newSlopeAb, newSlopeDc);

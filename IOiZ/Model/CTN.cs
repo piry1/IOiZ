@@ -45,13 +45,13 @@ namespace IOiZ.Model
             return number;
         }
 
-        public static CTN operator +(CTN n1, CTN n2) => CutNumber(n1 as TrapNum + n2, 0.0000000000000001m, 1);
+        public static CTN operator +(CTN n1, CTN n2) => CutNumber(n1 as TrapNum + n2, 0, 1);
 
-        public static CTN operator -(CTN n1, CTN n2) => CutNumber(n1 as TrapNum - n2, 0.0000000000000001m, 1);
+        public static CTN operator -(CTN n1, CTN n2) => CutNumber(n1 as TrapNum - n2, 0, 1);
 
-        public static CTN operator *(CTN n1, CTN n2) => CutNumber((n1 as TrapNum) * n2, 0.0000000000000001m, 1);
+        public static CTN operator *(CTN n1, CTN n2) => CutNumber((n1 as TrapNum) * n2, 0, 1);
 
-        public static CTN operator /(CTN n1, CTN n2) => CutNumber((n1 as TrapNum) / n2, 0.0000000000000001m, 1);
+        public static CTN operator /(CTN n1, CTN n2) => CutNumber((n1 as TrapNum) / n2, 0, 1);
 
     }
 }

@@ -13,7 +13,7 @@
                 <lvc:Axis Title="Prawdopodobieństwo" MaxValue="1.2" MinValue="0"></lvc:Axis>
             </lvc:CartesianChart.AxisY>
             <lvc:CartesianChart.AxisX>
-                <lvc:LogarithmicAxis LabelFormatter="{Binding Formatter}" MinValue="-10" MaxValue="0"
+                <lvc:LogarithmicAxis LabelFormatter="{Binding Formatter}" MinValue="-12" MaxValue="0"
                                      Base="10">
                     <lvc:LogarithmicAxis.Separator>
                         <lvc:Separator StrokeThickness="1" IsEnabled="True"></lvc:Separator>

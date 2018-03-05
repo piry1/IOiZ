@@ -17,43 +17,13 @@ namespace IOiZ.Model
             return (T)Activator.CreateInstance(typeof(T), args);
         }
 
-        //public static TrapNum TrapNum(Probability probability)
-        //{
-        //    decimal a = 0, b = 0, c = 0, d = 0;
-        //    GetTrapezParams(probability, ref a, ref b, ref c, ref d);
-        //    return new TrapNum(a, b, c, d);
-        //}
-
-        //public static PreciseTrapNum PreciseTrapNum(Probability probability)
-        //{
-        //    decimal a = 0, b = 0, c = 0, d = 0;
-        //    GetTrapezParams(probability, ref a, ref b, ref c, ref d);
-        //    return new PreciseTrapNum(a, b, c, d);
-        //}
-
-        //public static CTN CTN(Probability probability)
-        //{
-        //    decimal a = 0, b = 0, c = 0, d = 0;
-        //    GetTrapezParams(probability, ref a, ref b, ref c, ref d);
-        //    return new CTN(a, b, c, d);
-        //}
-
-        //public static CPTN CPTN(Probability probability)
-        //{
-        //    decimal a = 0, b = 0, c = 0, d = 0;
-        //    GetTrapezParams(probability, ref a, ref b, ref c, ref d);
-        //    return new CPTN(a, b, c, d);
-        //}
-
-
-
         private static void GetTrapezParams(Probability probability, ref decimal a, ref decimal b, ref decimal c, ref decimal d)
         {
             switch (probability)
             {
                 case Probability.VerySmall:
-                    a = (decimal)Math.Pow(10, -10);
-                    b = (decimal)Math.Pow(10, -10);
+                    a = 0m;
+                    b = 0m;
                     c = (decimal)Math.Pow(10, -8);
                     d = (decimal)Math.Pow(10, -7);
                     break;
